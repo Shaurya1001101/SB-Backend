@@ -1,0 +1,29 @@
+{
+  "name": "skillbridge-backend",
+  "version": "1.0.0",
+  "description": "Production REST API Backend for SkillBridge AI Platform, powered by Node.js, Express, and Supabase PostgreSQL.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "init-db": "node scripts/init-db.js",
+    "test": "node scripts/test-api.js"
+  },
+  "keywords": [
+    "skillbridge",
+    "backend",
+    "express",
+    "supabase",
+    "postgresql",
+    "api"
+  ],
+  "author": "Code Hustlers",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.3"
+  }
+}
