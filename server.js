@@ -19,7 +19,7 @@ app.use(
   cors({
     origin: '*',
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'x-user-id'],
   })
 );
 
@@ -77,10 +77,12 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start server if run directly
-app.listen(PORT, () => {
-  console.log(`🚀 SkillBridge Backend API running on http://localhost:${PORT}`);
-  console.log(`📡 Health Check: http://localhost:${PORT}/api/health`);
-});
+// Start server if run directly (local development)
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`🚀 SkillBridge Backend API running on http://localhost:${PORT}`);
+    console.log(`📡 Health Check: http://localhost:${PORT}/api/health`);
+  });
+}
 
 export default app;
