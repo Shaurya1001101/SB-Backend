@@ -71,8 +71,9 @@ app.use((req, res) => {
 // Central Error Handler
 app.use((err, req, res, next) => {
   console.error('Unhandled Server Error:', err);
-  res.status(500).json({
-    error: 'Internal Server Error',
+  const status = err.status || err.statusCode || 500;
+  res.status(status).json({
+    error: status === 400 ? 'Bad Request' : 'Internal Server Error',
     message: err.message,
   });
 });
