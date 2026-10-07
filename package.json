@@ -26,6 +26,7 @@
   "author": "Code Hustlers",
   "license": "MIT",
   "dependencies": {
+    "@supabase/supabase-js": "^2.117.3",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
