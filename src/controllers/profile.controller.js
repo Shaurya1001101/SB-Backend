@@ -8,7 +8,7 @@ export async function getProfile(req, res) {
 
   try {
     const profileRes = await query(
-      `SELECT u.id, u.email, u.name, u.role,
+      `SELECT u.id, u.username, u.email, u.name, u.role,
               p.xp, p.streak, p.target_role, p.skills_json,
               cp.role_key, cp.pacing_key, cp.completed_task_ids, cp.tasks_schedule_json
        FROM users u
@@ -26,6 +26,7 @@ export async function getProfile(req, res) {
     return res.status(200).json({
       profile: {
         id: row.id,
+        username: row.username,
         email: row.email,
         name: row.name,
         role: row.role,
